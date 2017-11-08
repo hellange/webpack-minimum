@@ -1,0 +1,14 @@
+Experimenting with a minimal project setup using webpack
+
+Based on info in: 
+
+- http://david-barreto.com/configuring-webpack-with-typescript/.
+- https://alejandronapoles.com/2016/03/12/the-simplest-webpack-and-express-setup/
+- official webpack doc (https://webpack.js.org/concepts/)
+
+Some commands:
+
+'npm run build' will bundle everything into a single js file that can be execuded with node
+'npm start' or 'npm run start' is same as 'node server.js' and will starts the server
+'npm run dev' will build and start the server
+
