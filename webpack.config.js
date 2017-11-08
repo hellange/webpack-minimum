@@ -1,13 +1,12 @@
 
 
-var path = require("path");
+const path = require("path");
 
-var DIST_DIR   = path.join(__dirname, "dist"),
-    CLIENT_DIR = path.join(__dirname, "src");
+const DIST_DIR   = path.join(__dirname, "dist"),
+      CLIENT_DIR = path.join(__dirname, "src");
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // To clean up the dist/target directory
 
 module.exports = {
     context: CLIENT_DIR,
@@ -15,13 +14,20 @@ module.exports = {
     entry: "./main",
 
     output: {
-        path:     DIST_DIR,
+        path: DIST_DIR,
         filename: "bundle.js"
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({template: 'index.html'})
     ],
     resolve: {
         extensions: ['.js', '.ts']
+    },
+    module: {
+        rules: [
+            { test: /\.ts$/, use: 'ts-loader' }
+        ]
     }
+
 };

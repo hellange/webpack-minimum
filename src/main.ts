@@ -1,5 +1,7 @@
-import _ from 'lodash';
-import { person } from "./person";
+import { person } from './person';
 
-var hello = document.getElementById("hello");
-hello.innerHTML = _.join(['Hello, ', person.firstName, person.lastName], ' ');
+const hello = document.getElementById("hello");
+
+if (hello) {
+    hello.innerHTML = 'Hello, ' + person.firstName + ' ' + person.lastName;
+}
