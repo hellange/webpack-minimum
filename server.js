@@ -9,7 +9,19 @@ app = express();
 app.use(express.static(DIST_DIR));
 
 //Send index.html when the user access the web
-app.get("*", function (req, res) {
-  res.sendFile(path.join(DIST_DIR, "index.html"));
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(DIST_DIR, "index.html"));
+// });
+
+router = express.Router();
+// placeholder route handler
+
+router.get('/x', (req, res, next) => {
+    res.json({
+        message: 'Hello World !!!!'
+    });
 });
+app.use('/', router);
+
+
 app.listen(PORT);

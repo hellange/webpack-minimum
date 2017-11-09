@@ -11,11 +11,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin'); // To clean up the d
 module.exports = {
     context: CLIENT_DIR,
 
-    entry: "./main",
+    entry: {
+        app: './main',
+        vendor: './vendor'
+
+    },
 
     output: {
         path: DIST_DIR,
-        filename: "bundle.js"
+        filename: '[name].js'
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
